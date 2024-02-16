@@ -1,47 +1,16 @@
-class ListaSpesa:
-    def __init__(self):
-        self.lista = {}
 
-    def aggiungi_articolo(self):
-        articolo = input("Inserisci l'articolo che vuoi aggiungere: ")
-        self.lista[articolo] = False
+eta = int(input("Quanti anni hai? "))
+invito = input("Hai un invito? (sì/no): ").lower()
+maggiorenne = 18
 
-    def spunta_articolo(self):
-        articolo = input("Inserisci l'articolo che hai acquistato: ")
-        if articolo in self.lista:
-            self.lista[articolo] = True
 
-    def mostra_lista(self):
-        for articolo, spuntato in self.lista.items():
-            stato = "Acquistato" if spuntato else "Da acquistare"
-            print(f"{articolo}: {stato}")
+if maggiorenne <= eta and invito == "si":
+    print("Puoi entrare!")
+else:
 
-    def cancella_lista(self):
-        if all(self.lista.values()):
-            self.lista.clear()
-            print("La lista è stata cancellata.")
-        else:
-            print("Ci sono ancora articoli da acquistare.")
+    vip = input("Sei un cliente VIP? (sì/no): ").lower()
 
-mia_lista = ListaSpesa()
-
-while True:
-    print("\n1. Aggiungi articolo")
-    print("2. Spunta articolo")
-    print("3. Mostra lista")
-    print("4. Cancella lista")
-    print("5. Esci")
-    scelta = input("Scegli un'opzione: ")
-
-    if scelta == '1':
-        mia_lista.aggiungi_articolo()
-    elif scelta == '2':
-        mia_lista.spunta_articolo()
-    elif scelta == '3':
-        mia_lista.mostra_lista()
-    elif scelta == '4':
-        mia_lista.cancella_lista()
-    elif scelta == '5':
-        break
+    if vip == "si":
+        print("Puoi entrare come cliente VIP!")
     else:
-        print("Opzione non valida. Riprova.")
+        print("Mi dispiace, non puoi entrare.")
